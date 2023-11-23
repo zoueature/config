@@ -1,6 +1,7 @@
 package config
 
 type StorageConfig struct {
-	AccessKey    string
-	AccessSecret string
+	AccessKey     string
+	AccessSecret  string
+	DefaultBucket string
 }
