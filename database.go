@@ -17,6 +17,7 @@ type DatabaseConfig struct {
 	Password string       `json:"password" yaml:"password"`
 	Database string       `json:"database" yaml:"database"`
 	Charset  string       `json:"charset" yaml:"charset"`
+	Prefix   string       `json:"prefix" yaml:"prefix"`
 }
 
 func (d DatabaseConfig) Dsn() (string, error) {
