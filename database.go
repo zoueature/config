@@ -18,24 +18,39 @@ type DatabaseConfig struct {
 	Database string       `json:"database" yaml:"database"`
 	Charset  string       `json:"charset" yaml:"charset"`
 	Prefix   string       `json:"prefix" yaml:"prefix"`
+	Timezone string       `json:"timezone" yaml:"timezone"`
 }
 
-func (d DatabaseConfig) Dsn() (string, error) {
+const defaultCharset = "utf8mb4"
+
+func (d DatabaseConfig) Dsn() string {
+	if d.Charset == "" {
+		d.Charset = defaultCharset
+	}
+	if d.Database == "" {
+		panic("[Database Configuration] db name is empty")
+	}
+	s := ""
 	switch d.Type {
 	case mysqlType:
-		return d.ToMySQLDsn(), nil
+		s = d.ToMySQLDsn()
 	default:
-		return "", driverNotDefinedErr
+		panic(driverNotDefinedErr)
 	}
+	return s
 }
 
 func (d DatabaseConfig) ToMySQLDsn() string {
-	return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=True&loc=Local",
+	if d.Timezone == "" {
+		d.Timezone = "Local"
+	}
+	return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=True&loc=%s",
 		d.Username,
 		d.Password,
 		d.Host,
 		d.Port,
 		d.Database,
 		d.Charset,
+		d.Timezone,
 	)
 }
