@@ -1,4 +1,4 @@
-module gitlab.jiebu.com/base/golang/config
+module gitlab.jiebu.com/base/config
 
 go 1.21.4
 
