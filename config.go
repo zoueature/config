@@ -16,8 +16,8 @@ var (
 	driverNotDefinedErr = errors.New("driver not defined")
 
 	defaultLogConfig = &LogConfig{
-		DriverType: StdDriver.String(),
-		driver:     StdDriver,
+		Driver:   "stdout",
+		MinLevel: "debug",
 	}
 	defaultAppConfig = &AppConfig{
 		Listen: defaultListen,
