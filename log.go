@@ -43,6 +43,7 @@ func (d fileDriver) String() string {
 type LogConfig struct {
 	DriverType string `json:"driver" yaml:"driver"`
 	FilePath   string `json:"filePath" yaml:"filePath"`
+	MinLevel   string `json:"minLevel"`
 	driver     LogDriver
 }
 
