@@ -12,4 +12,5 @@ type LogConfig struct {
 	LogFileMaxSize    int    `json:"logFileMaxSize" yaml:"logFileMaxSize"`
 	LogFileMaxBackups int    `json:"logFileMaxBackups" yaml:"logFileMaxBackups"`
 	LogMaxAge         int    `json:"logMaxAge" yaml:"logMaxAge"`
+	DingNotifyToken   string `json:"dingNotifyToken" yaml:"dingNotifyToken"`
 }
