@@ -6,4 +6,5 @@ type CacheConfig struct {
 	Port     string `json:"port" yaml:"port"`
 	Password string `json:"password" yaml:"password"`
 	DB       int    `json:"db" yaml:"db"`
+	Debug    bool   `json:"debug" yaml:"debug"`
 }
