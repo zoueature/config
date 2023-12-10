@@ -1,4 +1,4 @@
-module gitlab.jiebu.com/base/config
+module github.com/zoueature/config
 
 go 1.21.4
 
