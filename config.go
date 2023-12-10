@@ -51,8 +51,10 @@ type Conf interface {
 }
 
 type Configuration struct {
-	App       *AppConfig `json:"app" yaml:"app"`
-	Log       *LogConfig `json:"log" yaml:"log"`
+	App       *AppConfig      `json:"app" yaml:"app"`
+	Log       *LogConfig      `json:"log" yaml:"log"`
+	Database  *DatabaseConfig `json:"database" yaml:"database"`
+	Cache     *CacheConfig    `json:"cache" yaml:"cache"`
 	otherData sync.Map
 }
 
