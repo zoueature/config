@@ -1,9 +1,9 @@
 package config
 
 type StorageConfig struct {
-	AccessKey    string
-	AccessSecret string
-	Bucket       string
-	Region       string
-	Domain       string
+	AccessKey    string `json:"accessKey" yaml:"accessKey"`
+	AccessSecret string `json:"accessSecret" yaml:"accessSecret"`
+	Bucket       string `json:"bucket" yaml:"bucket"`
+	Region       string `json:"region" yaml:"region"`
+	Domain       string `json:"domain" yaml:"domain"`
 }
