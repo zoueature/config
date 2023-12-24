@@ -6,4 +6,5 @@ type StorageConfig struct {
 	Bucket       string `json:"bucket" yaml:"bucket"`
 	Region       string `json:"region" yaml:"region"`
 	Domain       string `json:"domain" yaml:"domain"`
+	CDN          string `json:"cdn" yaml:"cdn"`
 }
