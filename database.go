@@ -97,7 +97,7 @@ func (d DatabaseConfig) toMongoDsn() string {
 		auth,
 		strings.Join(d.Nodes, ","),
 		d.Database,
-		d.MaxConn,
 		d.MinConn,
+		d.MaxConn,
 	)
 }
