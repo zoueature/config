@@ -86,10 +86,15 @@ func (d DatabaseConfig) toMongoDsn() string {
 	if len(d.Nodes) == 0 {
 		panic("[Database Configuration] mongo node is empty. ")
 	}
+	auth := "%s:%s@"
+	if d.Username == "" {
+		auth = ""
+	} else {
+		auth = fmt.Sprintf(auth, d.Username, d.Password)
+	}
 	return fmt.Sprintf(
-		"mongodb://%s:%s@%s/%s?minPoolSize=%d&maxPoolSize=%d",
-		d.Username,
-		d.Password,
+		"mongodb://%s%s/%s?minPoolSize=%d&maxPoolSize=%d",
+		auth,
 		strings.Join(d.Nodes, ","),
 		d.Database,
 		d.MaxConn,
